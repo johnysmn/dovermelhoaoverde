@@ -1,261 +1,1665 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Do Vermelho ao Verde – E‑book</title>
-    <style>
-      /* Color palette */
-      :root {
-        --primary: #00c853; /* vibrante verde */
-        --secondary: #1b1b1b; /* preto suave */
-        --accent-red: #c0392b; /* vermelho usado apenas para chamar atenção */
-        --light-text: #f4f4f4;
-        --muted-text: #b0b0b0;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Do Vermelho ao Verde: e-book prático para sair das dívidas, organizar sua vida financeira e começar a investir com segurança." />
+  <meta name="theme-color" content="#00d26a" />
+  <meta property="og:title" content="Do Vermelho ao Verde" />
+  <meta property="og:description" content="Aprenda a sair do aperto, formar reserva e investir com clareza." />
+  <meta property="og:type" content="website" />
+  <title>Do Vermelho ao Verde | E-book de Finanças Pessoais</title>
+  <style>
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+    :root {
+      --bg: #050807;
+      --bg-soft: #0a1210;
+      --bg-card: #0f1b17;
+      --bg-card-2: #101412;
+      --green: #00d26a;
+      --green-dark: #008f4a;
+      --green-soft: rgba(0, 210, 106, 0.16);
+      --green-border: rgba(0, 210, 106, 0.34);
+      --red: #e53935;
+      --red-soft: rgba(229, 57, 53, 0.14);
+      --white: #f7fff9;
+      --muted: #aab8b0;
+      --muted-2: #789186;
+      --line: rgba(255, 255, 255, 0.08);
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1180px;
+    }
 
-      body {
-        font-family: 'Segoe UI', Tahoma, sans-serif;
-        color: var(--light-text);
-        background-color: var(--secondary);
-        line-height: 1.6;
-      }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-      /* Utility classes */
-      .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 40px 0;
-      }
+    html {
+      scroll-behavior: smooth;
+    }
 
-      h1, h2, h3 {
-        line-height: 1.2;
-        margin-bottom: 20px;
-      }
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(0, 210, 106, 0.22), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(0, 143, 74, 0.16), transparent 30rem),
+        var(--bg);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
 
-      h1 {
-        font-size: 2.5rem;
-      }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
 
-      h2 {
-        font-size: 2rem;
-      }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-      h3 {
-        font-size: 1.4rem;
-      }
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-      p {
-        margin-bottom: 15px;
-      }
+    .page-shell {
+      width: min(100% - 32px, var(--max));
+      margin-inline: auto;
+    }
 
-      .btn {
-        display: inline-block;
-        padding: 12px 28px;
-        border-radius: 30px;
-        background-color: var(--primary);
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background 0.3s ease;
-      }
+    .section {
+      padding: 96px 0;
+      position: relative;
+    }
 
-      .btn:hover {
-        background-color: #009e3b;
-      }
+    .section.compact {
+      padding: 64px 0;
+    }
 
-      /* Hero Section */
-      .hero {
+    .section-header {
+      max-width: 780px;
+      margin-bottom: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      margin-bottom: 18px;
+      border: 1px solid var(--green-border);
+      border-radius: 999px;
+      color: var(--green);
+      background: var(--green-soft);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 7.2rem);
+      max-width: 850px;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 4.7vw, 4.8rem);
+      max-width: 850px;
+    }
+
+    h3 {
+      font-size: clamp(1.3rem, 2.4vw, 2rem);
+    }
+
+    h4 {
+      font-size: 1.05rem;
+    }
+
+    .lead {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+      margin-top: 20px;
+    }
+
+    .green {
+      color: var(--green);
+    }
+
+    .red {
+      color: var(--red);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .strong {
+      color: var(--white);
+      font-weight: 800;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(5, 8, 7, 0.78);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 74px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      box-shadow: 0 0 30px rgba(0, 210, 106, 0.25);
+      color: #001b0d;
+      font-weight: 950;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 24px;
+      border: 1px solid var(--green-border);
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--green), #0ff08a);
+      color: #03120b;
+      font-weight: 950;
+      box-shadow: 0 18px 54px rgba(0, 210, 106, 0.18);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      filter: saturate(1.1);
+      box-shadow: 0 24px 74px rgba(0, 210, 106, 0.28);
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--white);
+      border-color: var(--line);
+      box-shadow: none;
+    }
+
+    .button.secondary:hover {
+      border-color: var(--green-border);
+      box-shadow: 0 18px 54px rgba(0, 210, 106, 0.12);
+    }
+
+    .hero {
+      min-height: calc(100vh - 74px);
+      padding: 84px 0 96px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 38px;
+      max-width: 650px;
+    }
+
+    .stat-card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .stat-card strong {
+      display: block;
+      color: var(--green);
+      font-size: 1.55rem;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .book-stage {
+      position: relative;
+      min-height: 590px;
+      display: grid;
+      place-items: center;
+    }
+
+    .book-glow {
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 210, 106, 0.34), transparent 68%);
+      filter: blur(12px);
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+
+    .book-card {
+      position: relative;
+      width: min(100%, 380px);
+      padding: 18px;
+      border: 1px solid var(--green-border);
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+      box-shadow: var(--shadow);
+      transform: rotate(2deg);
+      animation: floatBook 5s ease-in-out infinite;
+    }
+
+    .book-card::before {
+      content: "";
+      position: absolute;
+      inset: 18px -14px -18px 34px;
+      border-radius: 26px;
+      background: rgba(0, 210, 106, 0.12);
+      z-index: -1;
+      transform: rotate(-5deg);
+    }
+
+    .book-cover {
+      width: 100%;
+      border-radius: 22px;
+      object-fit: cover;
+      aspect-ratio: 3 / 4;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+    }
+
+    .cover-fallback {
+      display: none;
+      min-height: 510px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      padding: 42px;
+      border-radius: 22px;
+      background: linear-gradient(160deg, #0d1915, #030604 62%, #11261d);
+      text-align: center;
+    }
+
+    .cover-fallback strong {
+      font-size: 2.8rem;
+      line-height: 1;
+      letter-spacing: -0.07em;
+    }
+
+    .price-badge {
+      position: absolute;
+      right: -18px;
+      bottom: 44px;
+      display: grid;
+      place-items: center;
+      width: 132px;
+      height: 132px;
+      border: 1px solid var(--green-border);
+      border-radius: 50%;
+      background: #06120d;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.42);
+      color: var(--green);
+      font-weight: 950;
+      text-align: center;
+      transform: rotate(-8deg);
+    }
+
+    .price-badge small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .price-badge span {
+      display: block;
+      font-size: 1.7rem;
+      line-height: 1;
+      margin-top: 5px;
+    }
+
+    .ticker {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      background: rgba(0, 210, 106, 0.08);
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 28s linear infinite;
+    }
+
+    .ticker-item {
+      padding: 18px 28px;
+      color: var(--muted);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .ticker-item .green {
+      margin-right: 8px;
+    }
+
+    .problem-grid,
+    .benefit-grid,
+    .module-grid,
+    .bonus-grid,
+    .proof-grid,
+    .faq-grid,
+    .pricing-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02));
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -80px auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(0, 210, 106, 0.08);
+      pointer-events: none;
+    }
+
+    .card:hover {
+      border-color: var(--green-border);
+    }
+
+    .card-number {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-weight: 950;
+    }
+
+    .card-title {
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .card-text {
+      color: var(--muted);
+    }
+
+    .split {
+      display: grid;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .visual-panel {
+      padding: 26px;
+      border: 1px solid var(--green-border);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(0, 210, 106, 0.12), rgba(255, 255, 255, 0.03)),
+        #07110d;
+      box-shadow: var(--shadow);
+    }
+
+    .ledger {
+      display: grid;
+      gap: 14px;
+    }
+
+    .ledger-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .ledger-row strong {
+      color: var(--white);
+    }
+
+    .ledger-row span {
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .ledger-row.negative span {
+      color: var(--red);
+    }
+
+    .chapter-card {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .chapter-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .chapter-label {
+      color: var(--green);
+      font-size: 0.82rem;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .chapter-icon {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 1.2rem;
+    }
+
+    .chapter-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .chapter-list li {
+      display: flex;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .chapter-list li::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 950;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 24px;
+      top: 18px;
+      bottom: 18px;
+      width: 2px;
+      background: var(--green-border);
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 18px;
+    }
+
+    .timeline-dot {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #001b0d;
+      font-weight: 950;
+      box-shadow: 0 0 0 8px var(--bg);
+    }
+
+    .timeline-content {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .pricing-card {
+      padding: 38px;
+      border-color: var(--green-border);
+      background:
+        radial-gradient(circle at top right, rgba(0, 210, 106, 0.18), transparent 260px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025));
+    }
+
+    .price-line {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      margin: 22px 0 18px;
+    }
+
+    .price-line strong {
+      color: var(--green);
+      font-size: clamp(3rem, 7vw, 5.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.08em;
+    }
+
+    .price-line span {
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .check-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .check-list li::before {
+      content: "✓";
+      display: grid;
+      place-items: center;
+      flex: 0 0 22px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 0.82rem;
+      font-weight: 950;
+    }
+
+    .warning-list li::before {
+      content: "!";
+      background: var(--red-soft);
+      color: var(--red);
+    }
+
+    .faq-item {
+      padding: 0;
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 24px;
+      border: 0;
+      background: transparent;
+      color: var(--white);
+      font: inherit;
+      font-weight: 850;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-question span:last-child {
+      color: var(--green);
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 24px 24px;
+      color: var(--muted);
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .cta-band {
+      padding: 54px;
+      border: 1px solid var(--green-border);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(135deg, rgba(0, 210, 106, 0.20), rgba(0, 0, 0, 0.18)),
+        #07110d;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .cta-band h2 {
+      margin-inline: auto;
+    }
+
+    .cta-band .lead {
+      margin-inline: auto;
+    }
+
+    .footer {
+      padding: 40px 0 90px;
+      border-top: 1px solid var(--line);
+      color: var(--muted-2);
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes floatBook {
+      0%, 100% {
+        transform: translateY(0) rotate(2deg);
+      }
+      50% {
+        transform: translateY(-18px) rotate(-1deg);
+      }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        opacity: 0.72;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.08);
+      }
+    }
+
+    @keyframes ticker {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (min-width: 760px) {
+      .nav-links,
+      .nav-cta {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 80vh;
-        background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('ebook_cover.png') center/cover no-repeat;
-        text-align: center;
-        padding: 60px 20px;
-        position: relative;
       }
 
-      .hero-overlay {
-        background: rgba(0, 0, 0, 0.65);
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+      .hero-grid {
+        grid-template-columns: 1.08fr 0.92fr;
       }
 
-      .hero-content {
-        position: relative;
-        max-width: 700px;
-        z-index: 1;
+      .problem-grid,
+      .benefit-grid,
+      .bonus-grid,
+      .proof-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
 
-      .hero h1 {
-        margin-bottom: 10px;
-        font-size: 3rem;
-        font-weight: 700;
-        color: var(--primary);
+      .module-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .hero span.red {
-        color: var(--accent-red);
+      .pricing-grid {
+        grid-template-columns: 0.92fr 1.08fr;
+        align-items: stretch;
       }
 
-      .hero p {
-        margin-bottom: 30px;
-        font-size: 1.2rem;
-        color: var(--muted-text);
+      .split {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .hero .price {
-        font-size: 2.5rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-        color: var(--primary);
+      .footer-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+    }
+
+    @media (min-width: 1040px) {
+      .module-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
 
-      /* Features Section */
-      .features {
-        background-color: #111;
-        padding: 60px 0;
+      .faq-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 759px) {
+      .section {
+        padding: 72px 0;
       }
 
-      .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 40px;
-        margin-top: 40px;
+      .hero {
+        padding-top: 54px;
       }
 
-      .feature-item {
-        background-color: #1a1a1a;
-        border-radius: 8px;
-        padding: 30px;
-        transition: transform 0.3s ease;
-        cursor: default;
+      .hero-stats {
+        grid-template-columns: 1fr;
       }
 
-      .feature-item:hover {
-        transform: translateY(-6px);
+      .book-stage {
+        min-height: 470px;
       }
 
-      .feature-icon {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-        color: var(--primary);
+      .price-badge {
+        right: 6px;
+        bottom: 24px;
+        width: 112px;
+        height: 112px;
       }
 
-      .feature-title {
-        font-size: 1.4rem;
-        margin-bottom: 10px;
-        color: var(--light-text);
+      .cta-band {
+        padding: 34px 22px;
       }
-
-      .feature-desc {
-        font-size: 0.95rem;
-        color: var(--muted-text);
-      }
-
-      /* Testimonial / Guarantee Section */
-      .testimonial {
-        background-color: #171717;
-        padding: 60px 0;
-        text-align: center;
-      }
-
-      .testimonial blockquote {
-        font-style: italic;
-        font-size: 1.2rem;
-        color: var(--muted-text);
-        margin: 0 auto 20px;
-        max-width: 800px;
-      }
-
-      .testimonial cite {
-        display: block;
-        font-size: 0.95rem;
-        color: var(--primary);
-      }
-
-      footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #0d0d0d;
-        font-size: 0.85rem;
-        color: var(--muted-text);
-      }
-
-      @media (min-width: 768px) {
-        .hero {
-          flex-direction: row;
-          justify-content: space-between;
-          padding: 80px 60px;
-        }
-        .hero-content {
-          text-align: left;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Hero section -->
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="page-shell nav">
+      <a class="brand" href="#inicio" aria-label="Ir para o início">
+        <span class="brand-mark">R$</span>
+        <span>Do <span class="red">Vermelho</span> ao Verde</span>
+      </a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#beneficios">Benefícios</a>
+        <a href="#conteudo">Conteúdo</a>
+        <a href="#plano">Plano</a>
+        <a href="#faq">Dúvidas</a>
+      </nav>
+      <a class="button nav-cta" href="#comprar">Comprar por R$ 27,90</a>
+    </div>
+  </header>
+  <main id="inicio">
     <section class="hero">
-      <div class="hero-content">
-        <h1>Do <span class="red">Vermelho</span> ao Verde</h1>
-        <p>O guia definitivo para sair das dívidas, formar reserva e investir com confiança. Descubra que liberdade financeira é possível para qualquer pessoa.</p>
-        <p class="price">R$ 27,90</p>
-        <a class="btn" href="#comprar">Comprar agora</a>
-      </div>
-    </section>
-
-    <!-- Features section -->
-    <section class="features" id="features">
-      <div class="container">
-        <h2>O que você vai conquistar</h2>
-        <div class="features-grid">
-          <div class="feature-item">
-            <div class="feature-icon">💡</div>
-            <h3 class="feature-title">Mentalidade Financeira</h3>
-            <p class="feature-desc">Aprenda a mudar seus pensamentos sobre dinheiro e a quebrar mitos que te mantêm no vermelho.</p>
+      <div class="page-shell hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">
+            <span class="dot"></span>
+            Finanças pessoais sem complicação
           </div>
-          <div class="feature-item">
-            <div class="feature-icon">📉</div>
-            <h3 class="feature-title">Quitação de Dívidas</h3>
-            <p class="feature-desc">Descubra métodos práticos para eliminar dívidas e retomar o controle da sua vida financeira.</p>
+          <h1>Saia do <span class="red">Vermelho</span> e comece a construir o seu Verde financeiro.</h1>
+          <p class="lead">Um guia direto para quem quer organizar o dinheiro, quitar dívidas, criar reserva de emergência e dar os primeiros passos em investimentos com clareza.</p>
+          <div class="hero-actions">
+            <a class="button" href="#comprar">Quero começar agora</a>
+            <a class="button secondary" href="#conteudo">Ver o que vou aprender</a>
           </div>
-          <div class="feature-item">
-            <div class="feature-icon">💰</div>
-            <h3 class="feature-title">Reserva & Investimentos</h3>
-            <p class="feature-desc">Monte sua reserva de emergência e dê os primeiros passos em investimentos seguros e rentáveis.</p>
+          <div class="hero-stats" aria-label="Destaques do e-book">
+            <div class="stat-card">
+              <strong>10</strong>
+              <span>capítulos objetivos para seguir em ordem</span>
+            </div>
+            <div class="stat-card">
+              <strong>12</strong>
+              <span>meses de plano prático para evoluir</span>
+            </div>
+            <div class="stat-card">
+              <strong>R$ 27,90</strong>
+              <span>investimento único no seu aprendizado</span>
+            </div>
+            <div class="stat-card">
+              <strong>100%</strong>
+              <span>linguagem simples para iniciantes</span>
+            </div>
           </div>
-          <div class="feature-item">
-            <div class="feature-icon">📈</div>
-            <h3 class="feature-title">Renda Extra</h3>
-            <p class="feature-desc">Estratégias para multiplicar suas fontes de renda e fazer o dinheiro trabalhar por você.</p>
+        </div>
+        <div class="book-stage reveal">
+          <div class="book-glow"></div>
+          <div class="book-card">
+            <img class="book-cover" src="ebook_cover.png" alt="Capa do e-book Do Vermelho ao Verde" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="cover-fallback">
+              <strong>Do <span class="red">Vermelho</span> ao Verde</strong>
+              <p class="muted">Capa do e-book</p>
+            </div>
+            <div class="price-badge">
+              <div>
+                <small>por apenas</small>
+                <span>R$ 27,90</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Testimonial / Guarantee -->
-    <section class="testimonial">
-      <div class="container">
-        <blockquote>“Segui as estratégias do e‑book e em poucos meses saí do cheque especial. Hoje tenho uma reserva de emergência e comecei a investir. É libertador!”</blockquote>
-        <cite>— Maria S., leitora satisfeita</cite>
+    <section class="ticker" aria-label="Principais temas">
+      <div class="ticker-track">
+        <div class="ticker-item"><span class="green">●</span>controle financeiro</div>
+        <div class="ticker-item"><span class="green">●</span>reserva de emergência</div>
+        <div class="ticker-item"><span class="red">●</span>quitação de dívidas</div>
+        <div class="ticker-item"><span class="green">●</span>investimentos para iniciantes</div>
+        <div class="ticker-item"><span class="green">●</span>renda extra</div>
+        <div class="ticker-item"><span class="green">●</span>juros compostos</div>
+        <div class="ticker-item"><span class="green">●</span>plano de 12 meses</div>
+        <div class="ticker-item"><span class="green">●</span>controle financeiro</div>
+        <div class="ticker-item"><span class="green">●</span>reserva de emergência</div>
+        <div class="ticker-item"><span class="red">●</span>quitação de dívidas</div>
+        <div class="ticker-item"><span class="green">●</span>investimentos para iniciantes</div>
+        <div class="ticker-item"><span class="green">●</span>renda extra</div>
+        <div class="ticker-item"><span class="green">●</span>juros compostos</div>
+        <div class="ticker-item"><span class="green">●</span>plano de 12 meses</div>
       </div>
     </section>
+    <section class="section" id="problema">
+      <div class="page-shell">
+        <div class="section-header reveal">
+          <div class="eyebrow"><span class="dot"></span> Antes da virada</div>
+          <h2>O problema não é só ganhar pouco. É não saber para onde o dinheiro está indo.</h2>
+          <p class="lead">Este e-book foi criado para quem quer sair do ciclo de aperto, parar de adiar a organização financeira e tomar decisões melhores com o dinheiro que já tem hoje.</p>
+        </div>
+        <div class="problem-grid">
+          <article class="card reveal">
+            <div class="card-number">01</div>
+            <h3 class="card-title">O salário cai e desaparece</h3>
+            <p class="card-text">Você recebe, paga contas, usa o cartão e termina o mês sem entender exatamente o que aconteceu.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">02</div>
+            <h3 class="card-title">As <span class="red">dívidas</span> viram rotina</h3>
+            <p class="card-text">Parcelas, juros e atraso deixam a vida financeira pesada e fazem o futuro parecer distante.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">03</div>
+            <h3 class="card-title">Investir parece coisa de rico</h3>
+            <p class="card-text">A falta de informação faz muita gente achar que só começa quem já tem muito dinheiro sobrando.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section compact" id="virada">
+      <div class="page-shell split">
+        <div class="reveal">
+          <div class="eyebrow"><span class="dot"></span> A transformação</div>
+          <h2>Do aperto financeiro para decisões mais inteligentes.</h2>
+          <p class="lead">A proposta é simples: entender sua realidade, cortar vazamentos, quitar o que pesa, formar proteção e só depois avançar para os investimentos.</p>
+          <ul class="check-list">
+            <li>Diagnóstico claro das receitas e despesas.</li>
+            <li>Plano para sair das dívidas com método.</li>
+            <li>Reserva de emergência para imprevistos.</li>
+            <li>Primeiros investimentos com foco em segurança.</li>
+            <li>Rotina de aprendizado e renda extra.</li>
+          </ul>
+        </div>
+        <div class="visual-panel reveal">
+          <div class="ledger">
+            <div class="ledger-row negative">
+              <strong>Antes</strong>
+              <span>Compras por impulso</span>
+            </div>
+            <div class="ledger-row negative">
+              <strong>Antes</strong>
+              <span>Juros consumindo renda</span>
+            </div>
+            <div class="ledger-row ">
+              <strong>Virada</strong>
+              <span>Controle de gastos</span>
+            </div>
+            <div class="ledger-row ">
+              <strong>Depois</strong>
+              <span>Reserva crescendo</span>
+            </div>
+            <div class="ledger-row ">
+              <strong>Depois</strong>
+              <span>Investimentos mensais</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="beneficios">
+      <div class="page-shell">
+        <div class="section-header reveal">
+          <div class="eyebrow"><span class="dot"></span> Benefícios</div>
+          <h2>Uma página profissional para vender uma promessa clara: organização, controle e evolução.</h2>
+          <p class="lead">O visual usa preto e verde como base. O vermelho aparece apenas no nome do e-book e em termos negativos, como dívidas ou situação no vermelho.</p>
+        </div>
+        <div class="benefit-grid">
+          <article class="card reveal">
+            <div class="card-number">01</div>
+            <h3 class="card-title">Clareza</h3>
+            <p class="card-text">Entenda como mapear a vida financeira sem planilhas complicadas.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">02</div>
+            <h3 class="card-title">Praticidade</h3>
+            <p class="card-text">Aplique exercícios simples e decisões que cabem no dia a dia.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">03</div>
+            <h3 class="card-title">Segurança</h3>
+            <p class="card-text">Aprenda a montar uma reserva antes de assumir riscos maiores.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">04</div>
+            <h3 class="card-title">Consistência</h3>
+            <p class="card-text">Crie hábitos que continuam funcionando depois da primeira semana.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">05</div>
+            <h3 class="card-title">Direção</h3>
+            <p class="card-text">Siga uma ordem lógica para não pular etapas importantes.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">06</div>
+            <h3 class="card-title">Ação</h3>
+            <p class="card-text">Transforme teoria em passos reais com o plano de 12 meses.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="conteudo">
+      <div class="page-shell">
+        <div class="section-header reveal">
+          <div class="eyebrow"><span class="dot"></span> Conteúdo do e-book</div>
+          <h2>Capítulos organizados para levar o leitor do diagnóstico à ação.</h2>
+          <p class="lead">Cada módulo ataca uma etapa da jornada financeira: mentalidade, controle, quitação, poupança, reserva, investimentos, renda extra e planejamento.</p>
+        </div>
+        <div class="module-grid">
+          <article class="card chapter-card reveal">
+            <div class="chapter-top">
+              <div>
+                <div class="chapter-label">Cap. 01</div>
+                <h3>A Mentalidade do Dinheiro</h3>
+              </div>
+              <div class="chapter-icon">🧠</div>
+            </div>
+            <ul class="chapter-list">
+              <li>Por que hábitos importam</li>
+              <li>Mitos que travam seu avanço</li>
+              <li>Como mudar a relação com o dinheiro</li>
+            </ul>
+          </article>
+          <article class="card chapter-card reveal">
+            <div class="chapter-top">
+              <div>
+                <div class="chapter-label">Cap. 02</div>
+                <h3>Entendendo suas Finanças</h3>
+              </div>
+              <div class="chapter-icon">🔎</div>
+            </div>
+            <ul class="chapter-list">
+              <li>Levantamento de receitas</li>
+              <li>Mapeamento de despesas</li>
+              <li>Regra 50-30-20 explicada</li>
+            </ul>
+          </article>
+          <article class="card chapter-card reveal">
+            <div class="chapter-top">
+              <div>
+                <div class="chapter-label">Cap. 03</div>
+                <h3>Liquidando as <span class="red">Dívidas</span></h3>
+              </div>
+              <div class="chapter-icon">🧯</div>
+            </div>
+            <ul class="chapter-list">
+              <li>Bola de neve e avalanche</li>
+              <li>Priorização por juros</li>
+              <li>Estratégias para negociar melhor</li>
+            </ul>
+          </article>
+          <article class="card chapter-card reveal">
+            <div class="chapter-top">
+              <div>
+                <div class="chapter-label">Cap. 04</div>
+                <h3>A Arte de Poupar</h3>
+              </div>
+              <div class="chapter-icon">🏦</div>
+            </div>
+            <ul class="chapter-list">
+              <li>Pague-se primeiro</li>
+              <li>Cortes de alto impacto</li>
+              <li>Controle sem sofrimento</li>
+            </ul>
+          </article>
+          <article class="card chapter-card reveal">
+            <div class="chapter-top">
+              <div>
+                <div class="chapter-label">Cap. 05</div>
+                <h3>Reserva de Emergência</h3>
+              </div>
+              <div class="chapter-icon">🛡️</div>
+            </div>
+            <ul class="chapter-list">
+              <li>Quanto guardar</li>
+              <li>Onde deixar a reserva</li>
+              <li>Como evitar usar no impulso</li>
+            </ul>
+          </article>
+          <article class="card chapter-card reveal">
+            <div class="chapter-top">
+              <div>
+                <div class="chapter-label">Cap. 06</div>
+                <h3>Primeiros Passos para Investir</h3>
+              </div>
+              <div class="chapter-icon">🌱</div>
+            </div>
+            <ul class="chapter-list">
+              <li>Perfil de risco</li>
+              <li>Prazos e objetivos</li>
+              <li>Pirâmide de investimentos</li>
+            </ul>
+          </article>
+          <article class="card chapter-card reveal">
+            <div class="chapter-top">
+              <div>
+                <div class="chapter-label">Cap. 07</div>
+                <h3>Investimentos para Iniciantes</h3>
+              </div>
+              <div class="chapter-icon">📈</div>
+            </div>
+            <ul class="chapter-list">
+              <li>Tesouro Direto e CDB</li>
+              <li>LCI, LCA e FIIs</li>
+              <li>Ações e ETFs com cuidado</li>
+            </ul>
+          </article>
+          <article class="card chapter-card reveal">
+            <div class="chapter-top">
+              <div>
+                <div class="chapter-label">Cap. 08</div>
+                <h3>Construindo Renda Extra</h3>
+              </div>
+              <div class="chapter-icon">⚙️</div>
+            </div>
+            <ul class="chapter-list">
+              <li>Serviços e habilidades</li>
+              <li>Ativos digitais</li>
+              <li>Uso inteligente da renda extra</li>
+            </ul>
+          </article>
+          <article class="card chapter-card reveal">
+            <div class="chapter-top">
+              <div>
+                <div class="chapter-label">Cap. 09</div>
+                <h3>O Poder dos Juros Compostos</h3>
+              </div>
+              <div class="chapter-icon">⏳</div>
+            </div>
+            <ul class="chapter-list">
+              <li>Como o tempo multiplica dinheiro</li>
+              <li>Regra dos 72</li>
+              <li>Importância de começar cedo</li>
+            </ul>
+          </article>
+          <article class="card chapter-card reveal">
+            <div class="chapter-top">
+              <div>
+                <div class="chapter-label">Cap. 10</div>
+                <h3>Seu Plano de 12 Meses</h3>
+              </div>
+              <div class="chapter-icon">🗓️</div>
+            </div>
+            <ul class="chapter-list">
+              <li>Trimestres de execução</li>
+              <li>Metas progressivas</li>
+              <li>Consolidação do hábito</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="plano">
+      <div class="page-shell split">
+        <div class="reveal">
+          <div class="eyebrow"><span class="dot"></span> Plano de execução</div>
+          <h2>Um caminho de 12 meses para organizar, proteger e começar a crescer.</h2>
+          <p class="lead">A página fica mais longa, mais completa e mais convincente, com seções que ajudam o visitante a entender a jornada antes de comprar.</p>
+          <a class="button" href="#comprar">Comprar o e-book</a>
+        </div>
+        <div class="timeline reveal">
+          <article class="timeline-item">
+            <div class="timeline-dot">1</div>
+            <div class="timeline-content">
+              <h3>Meses 1 a 3</h3>
+              <p class="muted">Diagnóstico completo, controle de gastos e primeiros cortes conscientes.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-dot">2</div>
+            <div class="timeline-content">
+              <h3>Meses 4 a 6</h3>
+              <p class="muted">Quitação intensiva, abertura de conta gratuita e início da reserva.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-dot">3</div>
+            <div class="timeline-content">
+              <h3>Meses 7 a 9</h3>
+              <p class="muted">Consolidação da reserva e primeiros investimentos além da proteção.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-dot">4</div>
+            <div class="timeline-content">
+              <h3>Meses 10 a 12</h3>
+              <p class="muted">Investimento mensal, objetivo de 5 anos e revisão dos avanços.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section compact" id="para-quem">
+      <div class="page-shell">
+        <div class="section-header reveal">
+          <div class="eyebrow"><span class="dot"></span> Para quem é</div>
+          <h2>Este material é para quem cansou de viver no improviso e quer um passo a passo claro.</h2>
+        </div>
+        <div class="benefit-grid">
+          <article class="card reveal">
+            <div class="card-number">01</div>
+            <h3 class="card-title">Quem está começando do zero</h3>
+            <p class="card-text">Você não precisa ter experiência com investimentos para entender a proposta.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">02</div>
+            <h3 class="card-title">Quem quer sair das <span class="red">dívidas</span></h3>
+            <p class="card-text">O foco é reduzir o peso do vermelho antes de buscar crescimento.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">03</div>
+            <h3 class="card-title">Quem ganha pouco, mas quer agir</h3>
+            <p class="card-text">A organização começa com o que existe hoje, não com uma renda perfeita.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">04</div>
+            <h3 class="card-title">Quem quer investir com calma</h3>
+            <p class="card-text">O e-book apresenta uma ordem para reduzir riscos e evitar decisões impulsivas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section compact" id="nao-e">
+      <div class="page-shell">
+        <div class="section-header reveal">
+          <div class="eyebrow"><span class="dot"></span> O que este e-book não promete</div>
+          <h2>Uma venda profissional também precisa ser honesta e não vender milagre.</h2>
+        </div>
+        <div class="benefit-grid">
+          <article class="card reveal">
+            <div class="card-number">01</div>
+            <h3 class="card-title">Não é fórmula mágica</h3>
+            <p class="card-text">O resultado depende de disciplina, consistência e execução.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">02</div>
+            <h3 class="card-title">Não é recomendação personalizada</h3>
+            <p class="card-text">O conteúdo é educativo e deve ser adaptado à sua realidade.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">03</div>
+            <h3 class="card-title">Não é enriquecimento rápido</h3>
+            <p class="card-text">O foco é organização, proteção e evolução financeira no longo prazo.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">04</div>
+            <h3 class="card-title">Não substitui planejamento individual</h3>
+            <p class="card-text">Para decisões complexas, procure um profissional qualificado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="bonus">
+      <div class="page-shell">
+        <div class="section-header reveal">
+          <div class="eyebrow"><span class="dot"></span> Bônus da página</div>
+          <h2>Mais argumentos para aumentar a confiança antes do clique de compra.</h2>
+          <p class="lead">Esta seção deixa a oferta mais robusta e mostra que o conteúdo tem aplicação prática no cotidiano.</p>
+        </div>
+        <div class="bonus-grid">
+          <article class="card reveal">
+            <div class="card-number">B1</div>
+            <h3>Checklist de diagnóstico</h3>
+            <p class="card-text">Uma sequência mental para revisar entradas, saídas e prioridades.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">B2</div>
+            <h3>Mapa de prioridades</h3>
+            <p class="card-text">Primeiro controle, depois dívidas, depois reserva, depois investimentos.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">B3</div>
+            <h3>Plano trimestral</h3>
+            <p class="card-text">Divisão simples para não tentar resolver tudo em uma semana.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="jornada">
+      <div class="page-shell">
+        <div class="section-header reveal">
+          <div class="eyebrow"><span class="dot"></span> Jornada mês a mês</div>
+          <h2>Uma página longa, com narrativa completa e mais pontos de convencimento.</h2>
+          <p class="lead">Os blocos abaixo ajudam o visitante a visualizar uma jornada real de transformação financeira.</p>
+        </div>
+        <div class="module-grid">
+          <article class="card reveal">
+            <div class="card-number">01</div>
+            <div class="chapter-label">Mês 1</div>
+            <h3>Anotar todos os gastos</h3>
+            <p class="card-text">Comece enxergando exatamente para onde o dinheiro vai.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">02</div>
+            <div class="chapter-label">Mês 2</div>
+            <h3>Eliminar vazamentos</h3>
+            <p class="card-text">Cancele gastos invisíveis e reduza compras automáticas.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">03</div>
+            <div class="chapter-label">Mês 3</div>
+            <h3>Organizar contas</h3>
+            <p class="card-text">Defina vencimentos, prioridades e um limite de gastos.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">04</div>
+            <div class="chapter-label">Mês 4</div>
+            <h3>Escolher método de quitação</h3>
+            <p class="card-text">Use bola de neve ou avalanche conforme sua realidade.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">05</div>
+            <div class="chapter-label">Mês 5</div>
+            <h3>Negociar <span class="red">débitos</span> caros</h3>
+            <p class="card-text">Ataque juros altos e reduza o peso das parcelas.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">06</div>
+            <div class="chapter-label">Mês 6</div>
+            <h3>Começar a reserva</h3>
+            <p class="card-text">Separe um valor assim que o dinheiro cair.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">07</div>
+            <div class="chapter-label">Mês 7</div>
+            <h3>Reforçar a reserva</h3>
+            <p class="card-text">Proteja-se de imprevistos antes de correr riscos.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">08</div>
+            <div class="chapter-label">Mês 8</div>
+            <h3>Estudar renda fixa</h3>
+            <p class="card-text">Entenda Tesouro Selic, CDB, LCI e LCA.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">09</div>
+            <div class="chapter-label">Mês 9</div>
+            <h3>Fazer o primeiro aporte</h3>
+            <p class="card-text">Comece pequeno, mas comece com constância.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">10</div>
+            <div class="chapter-label">Mês 10</div>
+            <h3>Criar renda extra</h3>
+            <p class="card-text">Use habilidades simples para acelerar objetivos.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">11</div>
+            <div class="chapter-label">Mês 11</div>
+            <h3>Automatizar hábitos</h3>
+            <p class="card-text">Transforme o aporte mensal em rotina.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-number">12</div>
+            <div class="chapter-label">Mês 12</div>
+            <h3>Revisar e avançar</h3>
+            <p class="card-text">Celebre o progresso e defina metas maiores.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section compact" id="comparativo">
+      <div class="page-shell split">
+        <div class="visual-panel reveal">
+          <h3>Sem método</h3>
+          <ul class="check-list warning-list">
+            <li>Gastos espalhados e sem clareza.</li>
+            <li><span class="red">Dívidas</span> crescem com juros.</li>
+            <li>Decisões tomadas no impulso.</li>
+            <li>Investimentos escolhidos por dica aleatória.</li>
+          </ul>
+        </div>
+        <div class="visual-panel reveal">
+          <h3>Com direção</h3>
+          <ul class="check-list">
+            <li>Diagnóstico antes da ação.</li>
+            <li>Ordem clara para quitar o que pesa.</li>
+            <li>Reserva antes de risco.</li>
+            <li>Investimentos alinhados a objetivo e prazo.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="comprar">
+      <div class="page-shell pricing-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span class="dot"></span> Oferta</div>
+          <h2>Comece hoje por menos que muitos gastos por impulso.</h2>
+          <p class="lead">O valor foi deixado em destaque para facilitar a decisão. Troque o link do botão pelo checkout da Hotmart quando estiver pronto.</p>
+        </div>
+        <article class="card pricing-card reveal">
+          <div class="chapter-label">Acesso ao e-book</div>
+          <h3>Do <span class="red">Vermelho</span> ao Verde</h3>
+          <div class="price-line">
+            <strong>R$ 27,90</strong>
+            <span>pagamento único</span>
+          </div>
+          <ul class="check-list">
+            <li>E-book completo em linguagem simples.</li>
+            <li>10 capítulos com ordem prática de aprendizado.</li>
+            <li>Plano de 12 meses para aplicar o conteúdo.</li>
+            <li>Conteúdo pensado para iniciantes.</li>
+            <li>Acesso após a compra pela plataforma escolhida.</li>
+          </ul>
+          <a class="button" href="#" aria-label="Substitua este link pelo checkout da Hotmart">Comprar agora</a>
+          <p class="muted" style="margin-top: 16px; font-size: 0.92rem;">No código, substitua o href="#" do botão pelo link real da Hotmart.</p>
+        </article>
+      </div>
+    </section>
+    <section class="section" id="faq">
+      <div class="page-shell">
+        <div class="section-header reveal">
+          <div class="eyebrow"><span class="dot"></span> Dúvidas frequentes</div>
+          <h2>Respostas que reduzem objeções antes da compra.</h2>
+        </div>
+        <div class="faq-grid">
+          <article class="card faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>Preciso ter muito dinheiro para começar?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">Não. A ideia do conteúdo é começar com a realidade atual e evoluir com organização.</div>
+          </article>
+          <article class="card faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>O e-book é para iniciantes?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">Sim. A linguagem foi pensada para quem está começando e quer entender o básico sem complicação.</div>
+          </article>
+          <article class="card faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>Ele ensina a investir?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">Sim, mas depois de abordar controle, <span class="red">dívidas</span> e reserva, porque essa ordem costuma ser mais segura.</div>
+          </article>
+          <article class="card faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>O conteúdo promete enriquecimento rápido?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">Não. O foco é educação financeira, disciplina e decisões melhores no longo prazo.</div>
+          </article>
+          <article class="card faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>Posso vender pela Hotmart?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">Sim. Depois de cadastrar o produto, basta colocar o link de checkout no botão de compra.</div>
+          </article>
+          <article class="card faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>Por que o site usa verde e preto?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">O verde comunica crescimento e avanço. O preto deixa a página mais premium e profissional.</div>
+          </article>
+          <article class="card faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>Onde entra o <span class="red">vermelho</span>?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">Apenas no nome do e-book e em palavras negativas, como <span class="red">dívidas</span>, para reforçar o contraste da transformação.</div>
+          </article>
+          <article class="card faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>Preciso mexer em CSS separado?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">Não. O estilo está todo dentro do index.html para facilitar o upload no GitHub Pages.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section compact" id="final">
+      <div class="page-shell">
+        <div class="cta-band reveal">
+          <div class="eyebrow"><span class="dot"></span> Comece sua virada</div>
+          <h2>Você não precisa esperar ganhar mais para começar a organizar melhor o que já ganha.</h2>
+          <p class="lead">Dê o primeiro passo hoje e use o e-book como roteiro para sair do improviso financeiro.</p>
+          <div class="hero-actions" style="justify-content: center;">
+            <a class="button" href="#comprar">Comprar por R$ 27,90</a>
+            <a class="button secondary" href="#conteudo">Rever conteúdo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="page-shell footer-grid">
+      <div>
+        <div class="brand">
+          <span class="brand-mark">R$</span>
+          <span>Do <span class="red">Vermelho</span> ao Verde</span>
+        </div>
+        <p class="muted" style="margin-top: 16px; max-width: 620px;">Página de vendas criada para GitHub Pages. Mantenha o arquivo index.html e a imagem ebook_cover.png na raiz do repositório.</p>
+      </div>
+      <div>
+        <p><strong class="green">Preço:</strong> R$ 27,90</p>
+        <p><strong class="green">Tema:</strong> finanças pessoais para iniciantes</p>
+        <p><strong class="green">Cores:</strong> verde, preto e vermelho controlado</p>
+      </div>
+    </div>
+  </footer>
+  <script>
 
-    <footer>
-      &copy; 2026 Johny – Todos os direitos reservados.
-    </footer>
-  </body>
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach((item) => {
+      const button = item.querySelector('.faq-question');
+      const icon = button.querySelector('span:last-child');
+
+      button.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        faqItems.forEach((currentItem) => {
+          currentItem.classList.remove('open');
+          const currentIcon = currentItem.querySelector('.faq-question span:last-child');
+          if (currentIcon) {
+            currentIcon.textContent = '+';
+          }
+        });
+
+        if (!isOpen) {
+          item.classList.add('open');
+          icon.textContent = '−';
+        }
+      });
+    });
+
+    const buyButtons = document.querySelectorAll('a[href="#comprar"]');
+
+    buyButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const pricing = document.querySelector('#comprar');
+        if (pricing) {
+          pricing.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+  <!--
+    Guia rápido de edição:
+    1. Para trocar o link de compra, encontre o botão dentro da seção id="comprar".
+    2. Substitua href="#" pelo link real do checkout da Hotmart.
+    3. Mantenha o arquivo ebook_cover.png na mesma pasta do index.html.
+    4. O vermelho deve continuar restrito ao nome do e-book e palavras negativas.
+    5. A paleta principal é verde e preto para manter aparência premium.
+    6. O site é responsivo e funciona em celular, tablet e desktop.
+    7. A animação de entrada usa IntersectionObserver sem biblioteca externa.
+    8. O FAQ abre e fecha com JavaScript puro.
+    9. O GitHub Pages deve apontar para branch main e pasta /root.
+    10. Depois do commit, aguarde alguns minutos e teste em aba anônima.
+  -->
+  <!--
+    Mapa de seções da página:
+    Seção 01: Topbar fixa com navegação.
+    Seção 02: Hero com promessa principal.
+    Seção 03: Capa do e-book com fallback.
+    Seção 04: Ticker animado de temas.
+    Seção 05: Seção de problema.
+    Seção 06: Seção de transformação.
+    Seção 07: Grade de benefícios.
+    Seção 08: Conteúdo com 10 capítulos.
+    Seção 09: Plano de 12 meses.
+    Seção 10: Para quem é o e-book.
+    Seção 11: O que o e-book não promete.
+    Seção 12: Bônus de página.
+    Seção 13: Jornada mês a mês.
+    Seção 14: Comparativo sem método versus com direção.
+    Seção 15: Oferta com preço.
+    Seção 16: FAQ.
+    Seção 17: CTA final.
+    Seção 18: Rodapé.
+  -->
+</body>
 </html>
