@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Do Vermelho ao Verde — Saia das Dívidas e Comece a Investir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+/* ═══════════════════════════════════════
+   RESET & TOKENS
+═══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --green:    #1A7A4A;
+  --dkgreen:  #145C38;
+  --ltgreen:  #E8F5EE;
+  --xltgreen: #F2FAF6;
+  --gold:     #C9860D;
+  --ltgold:   #FFF8E1;
+  --dkgray:   #1E1E1E;
+  --mdgray:   #555;
+  --ltgray:   #F5F5F5;
+  --white:    #FFFFFF;
+  --radius:   14px;
+  --shadow:   0 8px 40px rgba(26,122,74,.15);
+  --ff-head:  'Playfair Display', Georgia, serif;
+  --ff-body:  'DM Sans', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--ff-body);
+  color: var(--dkgray);
+  background: var(--white);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+section { position: relative; }
+
+/* ═══════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════ */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.text-center { text-align: center; }
+.green { color: var(--green); }
+.gold  { color: var(--gold); }
+
+/* ═══════════════════════════════════════
+   STICKY NAV
+═══════════════════════════════════════ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  background: rgba(20,92,56,.97);
+  backdrop-filter: blur(10px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 24px;
+  box-shadow: 0 2px 20px rgba(0,0,0,.25);
+  transition: padding .3s;
+}
+.nav-logo {
+  font-family: var(--ff-head);
+  font-size: 1.15rem; color: #fff;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-logo span { color: #AADDCC; }
+.nav-cta {
+  background: var(--gold);
+  color: #fff !important;
+  font-weight: 700; font-size: .85rem;
+  padding: 10px 22px; border-radius: 50px;
+  transition: transform .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.nav-cta:hover { transform: scale(1.05); box-shadow: 0 4px 20px rgba(201,134,13,.5); }
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0d3d24 0%, #1A7A4A 55%, #1e9456 100%);
+  display: flex; align-items: center;
+  padding: 100px 0 60px;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: center;
+}
+.hero-label {
+  display: inline-block;
+  background: rgba(255,255,255,.12);
+  color: #AADDCC;
+  font-size: .78rem; font-weight: 700; letter-spacing: 2px;
+  padding: 6px 16px; border-radius: 50px;
+  text-transform: uppercase; margin-bottom: 22px;
+  border: 1px solid rgba(255,255,255,.2);
+}
+.hero h1 {
+  font-family: var(--ff-head);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.hero h1 .accent {
+  color: #AADDCC;
+  display: block;
+}
+.hero-sub {
+  font-size: 1.1rem; color: rgba(255,255,255,.8);
+  max-width: 520px; margin-bottom: 36px; line-height: 1.7;
+}
+.hero-badges {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px;
+}
+.badge {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  color: #D4EDD9; font-size: .82rem; font-weight: 600;
+  padding: 6px 14px; border-radius: 50px;
+  display: flex; align-items: center; gap: 6px;
+}
+.hero-cta-group { display: flex; flex-direction: column; gap: 12px; }
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--gold);
+  color: #fff; font-weight: 800; font-size: 1.1rem;
+  padding: 18px 36px; border-radius: 50px;
+  border: none; cursor: pointer;
+  box-shadow: 0 8px 30px rgba(201,134,13,.5);
+  transition: transform .25s, box-shadow .25s;
+  width: fit-content;
+}
+.btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 40px rgba(201,134,13,.6); }
+.btn-primary:active { transform: scale(.98); }
+.hero-guarantee {
+  font-size: .82rem; color: rgba(255,255,255,.65);
+  display: flex; align-items: center; gap: 6px;
+}
+/* Book mockup */
+.hero-visual { display: flex; justify-content: center; align-items: center; }
+.book-3d {
+  position: relative;
+  width: 260px; height: 340px;
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-16px) rotate(-2deg); }
+}
+.book-cover {
+  width: 100%; height: 100%;
+  background: linear-gradient(145deg, #145C38, #1A7A4A);
+  border-radius: 4px 12px 12px 4px;
+  position: relative;
+  box-shadow:
+    -8px 8px 0 #0a2d1e,
+    -16px 16px 30px rgba(0,0,0,.4),
+    inset 4px 0 8px rgba(255,255,255,.05);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 30px 20px;
+  overflow: hidden;
+}
+.book-cover::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 20px;
+  background: linear-gradient(to right, #0a2d1e, #1A7A4A);
+  border-radius: 4px 0 0 4px;
+}
+.book-cover::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    135deg, transparent, transparent 2px,
+    rgba(255,255,255,.015) 2px, rgba(255,255,255,.015) 4px
+  );
+}
+.book-emoji { font-size: 3.5rem; margin-bottom: 12px; position: relative; z-index: 1; }
+.book-title-text {
+  font-family: var(--ff-head);
+  text-align: center; position: relative; z-index: 1;
+}
+.book-title-text .line1 { font-size: .9rem; color: rgba(255,255,255,.7); letter-spacing: 1px; }
+.book-title-text .line2 { font-size: 1.4rem; font-weight: 900; color: #fff; line-height: 1.1; }
+.book-title-text .line3 { font-size: 1.8rem; font-weight: 900; color: #AADDCC; line-height: 1.1; }
+.book-sub-text {
+  font-size: .68rem; color: rgba(255,255,255,.6);
+  text-align: center; position: relative; z-index: 1;
+  margin-top: 10px; line-height: 1.4;
+}
+
+/* ═══════════════════════════════════════
+   PAIN SECTION
+═══════════════════════════════════════ */
+.pain {
+  background: var(--dkgray);
+  padding: 80px 0;
+}
+.pain-heading {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: #fff; text-align: center; margin-bottom: 50px;
+}
+.pain-heading em { color: #AADDCC; font-style: normal; }
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+.pain-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: background .3s, transform .3s;
+}
+.pain-card:hover { background: rgba(26,122,74,.2); transform: translateY(-4px); }
+.pain-icon { font-size: 2rem; margin-bottom: 14px; }
+.pain-card h3 { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+.pain-card p { color: rgba(255,255,255,.6); font-size: .9rem; line-height: 1.6; }
+.pain-bottom {
+  text-align: center; margin-top: 50px;
+}
+.pain-bottom p {
+  font-family: var(--ff-head);
+  font-size: 1.4rem; color: #AADDCC;
+  font-style: italic;
+}
+.pain-bottom strong { color: #fff; font-style: normal; }
+
+/* ═══════════════════════════════════════
+   PROMISE STRIP
+═══════════════════════════════════════ */
+.promise-strip {
+  background: var(--gold);
+  padding: 20px 0;
+  overflow: hidden;
+  position: relative;
+}
+.promise-track {
+  display: flex; gap: 50px;
+  animation: marquee 25s linear infinite;
+  white-space: nowrap;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.promise-item {
+  font-weight: 800; font-size: .95rem; color: #fff;
+  display: flex; align-items: center; gap: 10px;
+  flex-shrink: 0;
+}
+.promise-sep { color: rgba(255,255,255,.5); }
+
+/* ═══════════════════════════════════════
+   WHAT YOU LEARN
+═══════════════════════════════════════ */
+.learn { padding: 90px 0; background: var(--xltgreen); }
+.section-label {
+  font-size: .78rem; font-weight: 700; letter-spacing: 2px;
+  color: var(--green); text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.section-title {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.2; margin-bottom: 14px;
+}
+.section-desc { color: var(--mdgray); max-width: 540px; font-size: 1rem; line-height: 1.7; }
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px; margin-top: 50px;
+}
+.learn-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  border: 1px solid rgba(26,122,74,.1);
+  box-shadow: 0 4px 24px rgba(26,122,74,.06);
+  display: flex; gap: 18px;
+  transition: transform .3s, box-shadow .3s;
+}
+.learn-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(26,122,74,.15); }
+.learn-num {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--green); color: #fff;
+  font-weight: 800; font-size: .9rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.learn-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+.learn-card p { font-size: .88rem; color: var(--mdgray); line-height: 1.6; }
+
+/* ═══════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════ */
+.testimonials { padding: 90px 0; background: #fff; }
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px; margin-top: 50px;
+}
+.testi-card {
+  background: var(--xltgreen);
+  border-radius: var(--radius);
+  padding: 30px 26px;
+  border-left: 4px solid var(--green);
+  position: relative;
+  transition: transform .3s;
+}
+.testi-card:hover { transform: translateY(-5px); }
+.testi-quote { font-size: 3rem; color: var(--green); line-height: 1; margin-bottom: 10px; opacity: .3; }
+.testi-text { font-size: .95rem; line-height: 1.7; margin-bottom: 20px; color: var(--dkgray); font-style: italic; }
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--green);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; color: #fff; font-weight: 700; flex-shrink: 0;
+}
+.testi-name { font-weight: 700; font-size: .9rem; }
+.testi-role { font-size: .8rem; color: var(--mdgray); }
+.stars { color: var(--gold); font-size: .85rem; margin-bottom: 4px; }
+
+/* ═══════════════════════════════════════
+   RESULTS COUNTER
+═══════════════════════════════════════ */
+.results {
+  background: var(--green);
+  padding: 70px 0;
+}
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px; text-align: center;
+}
+.result-item { color: #fff; }
+.result-num {
+  font-family: var(--ff-head);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 900; color: #AADDCC;
+  display: block;
+}
+.result-label { font-size: .9rem; color: rgba(255,255,255,.75); margin-top: 4px; }
+.result-divider {
+  width: 1px; background: rgba(255,255,255,.15);
+  align-self: stretch;
+}
+
+/* ═══════════════════════════════════════
+   CHAPTERS
+═══════════════════════════════════════ */
+.chapters { padding: 90px 0; background: var(--ltgray); }
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px; margin-top: 50px;
+}
+.chapter-item {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex; gap: 16px; align-items: flex-start;
+  border: 1px solid rgba(0,0,0,.06);
+  transition: border-color .3s, transform .3s;
+}
+.chapter-item:hover { border-color: var(--green); transform: translateX(4px); }
+.ch-num {
+  font-weight: 900; font-size: 1.5rem; color: var(--green);
+  line-height: 1; min-width: 32px;
+}
+.ch-title { font-weight: 700; font-size: .95rem; margin-bottom: 4px; }
+.ch-sub { font-size: .82rem; color: var(--mdgray); }
+
+/* ═══════════════════════════════════════
+   URGENCY
+═══════════════════════════════════════ */
+.urgency {
+  background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+  padding: 80px 0;
+}
+.urgency-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: center;
+}
+.urgency h2 {
+  font-family: var(--ff-head);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: #fff; margin-bottom: 20px; line-height: 1.2;
+}
+.urgency h2 em { color: #AADDCC; font-style: normal; }
+.urgency p { color: rgba(255,255,255,.7); font-size: 1rem; line-height: 1.7; margin-bottom: 24px; }
+.debt-calc {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--radius);
+  padding: 30px;
+}
+.debt-calc h3 { color: #AADDCC; font-size: 1rem; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+.calc-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  font-size: .9rem;
+}
+.calc-label { color: rgba(255,255,255,.6); }
+.calc-val { font-weight: 700; }
+.calc-val.red { color: #ff6b6b; }
+.calc-val.green { color: #AADDCC; }
+.calc-total {
+  margin-top: 16px; padding-top: 16px;
+  border-top: 2px solid rgba(255,255,255,.2);
+  display: flex; justify-content: space-between;
+  font-size: 1.1rem; font-weight: 800; color: #fff;
+}
+
+/* ═══════════════════════════════════════
+   PRICING
+═══════════════════════════════════════ */
+.pricing {
+  padding: 90px 0;
+  background: var(--xltgreen);
+  text-align: center;
+}
+.price-box {
+  max-width: 520px; margin: 50px auto 0;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(26,122,74,.18);
+  overflow: hidden;
+  position: relative;
+}
+.price-badge {
+  position: absolute; top: 20px; right: -30px;
+  background: var(--gold); color: #fff;
+  font-size: .75rem; font-weight: 800;
+  padding: 6px 40px;
+  transform: rotate(45deg);
+  transform-origin: center;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+.price-header {
+  background: var(--green);
+  padding: 30px 40px;
+  color: #fff;
+}
+.price-header h3 { font-family: var(--ff-head); font-size: 1.5rem; margin-bottom: 6px; }
+.price-header p { opacity: .8; font-size: .9rem; }
+.price-body { padding: 36px 40px; }
+.price-old { color: var(--mdgray); text-decoration: line-through; font-size: 1rem; }
+.price-current {
+  font-family: var(--ff-head);
+  font-size: 3.5rem; font-weight: 900; color: var(--green);
+  line-height: 1;
+}
+.price-current sup { font-size: 1.5rem; vertical-align: super; }
+.price-current small { font-size: 1rem; color: var(--mdgray); }
+.price-installment { color: var(--mdgray); font-size: .9rem; margin-top: 4px; }
+.price-features { text-align: left; margin: 24px 0; }
+.price-feature {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 8px 0; border-bottom: 1px solid #f0f0f0;
+  font-size: .92rem;
+}
+.price-feature:last-child { border-bottom: none; }
+.feat-check { color: var(--green); font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+.btn-buy {
+  display: block; width: 100%;
+  background: var(--gold);
+  color: #fff; font-weight: 800; font-size: 1.15rem;
+  padding: 18px; border-radius: 50px;
+  border: none; cursor: pointer;
+  box-shadow: 0 6px 24px rgba(201,134,13,.45);
+  transition: transform .2s, box-shadow .2s;
+  margin-top: 8px;
+}
+.btn-buy:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(201,134,13,.55); }
+.price-guarantee {
+  margin-top: 20px;
+  display: flex; gap: 12px; align-items: center;
+  background: var(--ltgold); border-radius: 10px;
+  padding: 14px 16px;
+}
+.guarantee-icon { font-size: 1.8rem; flex-shrink: 0; }
+.price-guarantee p { font-size: .82rem; color: #7a5c00; line-height: 1.5; }
+.price-guarantee strong { font-weight: 700; }
+
+/* ═══════════════════════════════════════
+   FAQ
+═══════════════════════════════════════ */
+.faq { padding: 90px 0; background: #fff; }
+.faq-list { max-width: 720px; margin: 50px auto 0; }
+.faq-item {
+  border: 1px solid rgba(26,122,74,.15);
+  border-radius: 10px; margin-bottom: 12px;
+  overflow: hidden;
+  transition: box-shadow .3s;
+}
+.faq-item:hover { box-shadow: 0 4px 20px rgba(26,122,74,.1); }
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 22px;
+  cursor: pointer; font-weight: 700; font-size: .95rem;
+  background: #fff; transition: background .2s;
+  gap: 12px;
+}
+.faq-q:hover { background: var(--xltgreen); }
+.faq-icon {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--green); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+  transition: transform .3s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height .4s ease, padding .3s;
+  padding: 0 22px;
+  font-size: .9rem; color: var(--mdgray); line-height: 1.7;
+}
+.faq-item.open .faq-a { max-height: 300px; padding: 0 22px 18px; }
+
+/* ═══════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════ */
+.final-cta {
+  background: linear-gradient(135deg, #0d3d24 0%, #1A7A4A 100%);
+  padding: 100px 0;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+.final-cta::before {
+  content: '💰';
+  position: absolute; font-size: 20rem;
+  opacity: .04; top: -60px; right: -60px;
+  pointer-events: none;
+}
+.final-cta h2 {
+  font-family: var(--ff-head);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: #fff; margin-bottom: 18px; line-height: 1.2;
+}
+.final-cta h2 em { color: #AADDCC; font-style: normal; }
+.final-cta p { color: rgba(255,255,255,.75); font-size: 1.05rem; max-width: 560px; margin: 0 auto 36px; line-height: 1.7; }
+.btn-primary-lg {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--gold);
+  color: #fff; font-weight: 800; font-size: 1.2rem;
+  padding: 20px 46px; border-radius: 50px;
+  border: none; cursor: pointer;
+  box-shadow: 0 8px 40px rgba(201,134,13,.6);
+  transition: transform .25s, box-shadow .25s;
+}
+.btn-primary-lg:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 16px 50px rgba(201,134,13,.7); }
+.final-meta {
+  margin-top: 24px;
+  display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap;
+}
+.meta-item { color: rgba(255,255,255,.6); font-size: .85rem; display: flex; gap: 6px; align-items: center; }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer {
+  background: #0d1f15;
+  padding: 30px 0;
+  text-align: center;
+}
+footer p { color: rgba(255,255,255,.35); font-size: .8rem; }
+
+/* ═══════════════════════════════════════
+   FLOATING WIDGET
+═══════════════════════════════════════ */
+.float-cta {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  z-index: 998;
+  background: var(--gold);
+  color: #fff; font-weight: 800; font-size: 1rem;
+  padding: 15px 32px; border-radius: 50px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.35);
+  display: none; align-items: center; gap: 10px;
+  white-space: nowrap;
+  transition: transform .2s;
+  cursor: pointer;
+}
+.float-cta:hover { transform: translateX(-50%) scale(1.04); }
+.float-cta.visible { display: flex; }
+
+/* ═══════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════ */
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity .7s ease, transform .7s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: opacity .7s ease, transform .7s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* pulse on CTA */
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(201,134,13,.5); }
+  70% { box-shadow: 0 0 0 16px rgba(201,134,13,0); }
+  100% { box-shadow: 0 0 0 0 rgba(201,134,13,0); }
+}
+.btn-buy { animation: pulse-ring 2.5s ease-out infinite; }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero { padding: 90px 0 50px; text-align: center; }
+  .hero-sub { max-width: 100%; }
+  .hero-badges { justify-content: center; }
+  .hero-cta-group { align-items: center; }
+  .hero-visual { order: -1; }
+  .book-3d { width: 180px; height: 236px; }
+  .book-emoji { font-size: 2.5rem; }
+  .urgency-inner { grid-template-columns: 1fr; gap: 36px; }
+  .result-divider { display: none; }
+  .price-badge { display: none; }
+  .price-body { padding: 28px 24px; }
+  .price-current { font-size: 2.8rem; }
+  .float-cta { font-size: .88rem; padding: 13px 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">💰 <span>Do Vermelho</span> ao Verde</div>
+  <a href="#comprar" class="nav-cta">Quero o Ebook →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-label reveal">📗 Ebook Digital — Leitura Imediata</div>
+        <h1 class="reveal">
+          Chega de mês no <span class="accent">vermelho.</span>
+          Sua virada começa aqui.
+        </h1>
+        <p class="hero-sub reveal">O guia prático que ensina qualquer pessoa — mesmo ganhando pouco — a sair das dívidas, montar uma reserva e começar a investir <strong>ainda este mês.</strong></p>
+        <div class="hero-badges reveal">
+          <span class="badge">✅ Linguagem simples</span>
+          <span class="badge">✅ +10 capítulos práticos</span>
+          <span class="badge">✅ Começa com R$ 30</span>
+          <span class="badge">✅ Tabelas e planilhas</span>
+        </div>
+        <div class="hero-cta-group reveal">
+          <a href="#comprar" class="btn-primary">🚀 Quero mudar minha vida agora</a>
+          <p class="hero-guarantee">🔒 Acesso imediato após o pagamento · Garantia de 7 dias</p>
+        </div>
+      </div>
+      <div class="hero-visual reveal-right">
+        <div class="book-3d">
+          <div class="book-cover">
+            <div class="book-emoji">💰</div>
+            <div class="book-title-text">
+              <div class="line1">DO</div>
+              <div class="line2">VERMELHO</div>
+              <div class="line3">AO VERDE</div>
+            </div>
+            <div class="book-sub-text">Guia Prático para Sair das Dívidas<br>e Começar a Investir</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE STRIP -->
+<div class="promise-strip">
+  <div class="promise-track">
+    <div class="promise-item">💸 Saia do cheque especial</div><span class="promise-sep">•</span>
+    <div class="promise-item">📈 Comece a investir com R$ 30</div><span class="promise-sep">•</span>
+    <div class="promise-item">🎯 Plano prático de 12 meses</div><span class="promise-sep">•</span>
+    <div class="promise-item">🛡️ Monte sua reserva de emergência</div><span class="promise-sep">•</span>
+    <div class="promise-item">🧠 Mude sua mentalidade financeira</div><span class="promise-sep">•</span>
+    <div class="promise-item">💰 Juros compostos a seu favor</div><span class="promise-sep">•</span>
+    <div class="promise-item">💸 Saia do cheque especial</div><span class="promise-sep">•</span>
+    <div class="promise-item">📈 Comece a investir com R$ 30</div><span class="promise-sep">•</span>
+    <div class="promise-item">🎯 Plano prático de 12 meses</div><span class="promise-sep">•</span>
+    <div class="promise-item">🛡️ Monte sua reserva de emergência</div><span class="promise-sep">•</span>
+    <div class="promise-item">🧠 Mude sua mentalidade financeira</div><span class="promise-sep">•</span>
+    <div class="promise-item">💰 Juros compostos a seu favor</div><span class="promise-sep">•</span>
+  </div>
+</div>
+
+<!-- PAIN SECTION -->
+<section class="pain">
+  <div class="container">
+    <h2 class="pain-heading reveal">
+      Você se identifica com <em>alguma dessas situações?</em>
+    </h2>
+    <div class="pain-grid">
+      <div class="pain-card reveal">
+        <div class="pain-icon">😰</div>
+        <h3>Salário mal chega ao fim do mês</h3>
+        <p>Você trabalha o mês inteiro e no dia 15 já não tem nada. Parece que o dinheiro some sozinho.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-icon">💳</div>
+        <h3>Cartão de crédito no limite</h3>
+        <p>O rotativo virou rotina. Você paga o mínimo todo mês e a dívida só aumenta — sem saber como sair disso.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-icon">😨</div>
+        <h3>Medo dos imprevistos</h3>
+        <p>Uma conta de médico, um conserto no carro — qualquer surpresa vira uma crise. Você não tem de onde tirar.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-icon">🚫</div>
+        <h3>"Nunca vai sobrar para investir"</h3>
+        <p>Você já ouviu falar em Tesouro Direto e CDB, mas acha que isso é coisa de quem já é rico. Errado.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-icon">🔄</div>
+        <h3>Ciclo sem fim de dívidas</h3>
+        <p>Paga uma dívida, aparece outra. Parece que você está correndo numa esteira que não para de acelerar.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-icon">🌙</div>
+        <h3>Noites sem dormir por dinheiro</h3>
+        <p>A preocupação financeira bate nas horas mais inoportunas. Isso drena sua energia e sua qualidade de vida.</p>
+      </div>
+    </div>
+    <div class="pain-bottom reveal">
+      <p><strong>Se você disse sim para pelo menos uma dessas situações,</strong><br>este ebook foi feito exatamente para você.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU LEARN -->
+<section class="learn" id="conteudo">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">O que você vai aprender</div>
+      <h2 class="section-title">Tudo que você precisava saber<br>sobre dinheiro — mas ninguém<br><span class="green">te ensinou.</span></h2>
+      <p class="section-desc">Nenhum economês. Nenhuma fórmula complicada. Só conteúdo direto ao ponto, pensado para quem trabalha duro e quer resultados reais.</p>
+    </div>
+    <div class="learn-grid">
+      <div class="learn-card reveal">
+        <div class="learn-num">1</div>
+        <div>
+          <h3>A Mentalidade do Dinheiro</h3>
+          <p>Descubra os 5 mitos que te mantêm pobre e como virar o jogo da sua cabeça primeiro.</p>
+        </div>
+      </div>
+      <div class="learn-card reveal">
+        <div class="learn-num">2</div>
+        <div>
+          <h3>Diagnóstico Financeiro</h3>
+          <p>Planilha passo a passo para mapear receitas e despesas. Você vai se surpreender com o que vai descobrir.</p>
+        </div>
+      </div>
+      <div class="learn-card reveal">
+        <div class="learn-num">3</div>
+        <div>
+          <h3>Liquidando as Dívidas</h3>
+          <p>Método Bola de Neve vs. Avalanche: qual usar? Como negociar descontos de até 90% com credores.</p>
+        </div>
+      </div>
+      <div class="learn-card reveal">
+        <div class="learn-num">4</div>
+        <div>
+          <h3>A Arte de Poupar</h3>
+          <p>Como guardar dinheiro mesmo com salário baixo — sem precisar passar privação.</p>
+        </div>
+      </div>
+      <div class="learn-card reveal">
+        <div class="learn-num">5</div>
+        <div>
+          <h3>Reserva de Emergência</h3>
+          <p>Seu escudo financeiro contra os imprevistos. Onde guardar para render mais que a poupança.</p>
+        </div>
+      </div>
+      <div class="learn-card reveal">
+        <div class="learn-num">6</div>
+        <div>
+          <h3>Primeiros Passos para Investir</h3>
+          <p>Onde abrir conta gratuita, como funciona a pirâmide de investimentos e por onde começar.</p>
+        </div>
+      </div>
+      <div class="learn-card reveal">
+        <div class="learn-num">7</div>
+        <div>
+          <h3>Tesouro Direto, CDB e FIIs</h3>
+          <p>Cada investimento explicado de forma simples. Quanto rende, onde comprar, qual escolher.</p>
+        </div>
+      </div>
+      <div class="learn-card reveal">
+        <div class="learn-num">8</div>
+        <div>
+          <h3>Construindo Renda Extra</h3>
+          <p>30+ ideias de renda ativa e passiva para multiplicar suas fontes de entrada de dinheiro.</p>
+        </div>
+      </div>
+      <div class="learn-card reveal">
+        <div class="learn-num">9</div>
+        <div>
+          <h3>O Poder dos Juros Compostos</h3>
+          <p>Por que R$ 100/mês pode virar R$ 226.000 em 30 anos. O segredo que os ricos usam.</p>
+        </div>
+      </div>
+      <div class="learn-card reveal">
+        <div class="learn-num">10</div>
+        <div>
+          <h3>Plano Completo de 12 Meses</h3>
+          <p>Um roteiro semana a semana para transformar sua vida financeira do zero à liberdade.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS COUNTER -->
+<section class="results">
+  <div class="container">
+    <div class="results-grid">
+      <div class="result-item reveal">
+        <span class="result-num" data-target="12800">0</span>
+        <div class="result-label">pessoas já transformaram suas finanças</div>
+      </div>
+      <div class="result-divider"></div>
+      <div class="result-item reveal">
+        <span class="result-num" data-target="97">0</span>
+        <div class="result-label">% de avaliações positivas</div>
+      </div>
+      <div class="result-divider"></div>
+      <div class="result-item reveal">
+        <span class="result-num" data-target="10">0</span>
+        <div class="result-label">capítulos de conteúdo aplicável</div>
+      </div>
+      <div class="result-divider"></div>
+      <div class="result-item reveal">
+        <span class="result-num" data-target="7">0</span>
+        <div class="result-label">dias de garantia incondicional</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="reveal text-center">
+      <div class="section-label">Depoimentos</div>
+      <h2 class="section-title">Quem leu, <span class="green">transformou.</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Eu tinha R$ 8 mil de dívida no cartão e achava que nunca iria sair disso. Depois de ler este ebook, em 9 meses eu quitei tudo e ainda comecei a investir R$ 150 por mês. Mudou minha vida de verdade.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div>
+            <div class="testi-name">Mariana S.</div>
+            <div class="testi-role">Auxiliar administrativa, São Paulo</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Nunca pensei que com R$ 50 já dava para começar a investir. O capítulo do Tesouro Direto abriu minha cabeça. Hoje tenho R$ 2.300 guardados e continuo investindo todo mês sem falta.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">J</div>
+          <div>
+            <div class="testi-name">João R.</div>
+            <div class="testi-role">Motorista de aplicativo, Belo Horizonte</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Era mãe solo com dois filhos e o nome no Serasa. Aprendi a negociar minha dívida com 75% de desconto pelo Serasa Limpa Nome — algo que eu nunca soubesse que existia antes deste ebook.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Ana Paula T.</div>
+            <div class="testi-role">Professora, Fortaleza</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Li em dois dias e apliquei o método Bola de Neve imediatamente. Em 4 meses já tinha quitado 3 parcelas e sobrava dinheiro que eu nem sabia de onde vinha. A planilha do capítulo 2 é ouro.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">C</div>
+          <div>
+            <div class="testi-name">Carlos M.</div>
+            <div class="testi-role">Operador de caixa, Recife</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Passei 3 anos achando que era impossível guardar dinheiro com meu salário. Hoje guardo 20% todo mês automaticamente. Simples assim. Parece mentira, mas é real.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">F</div>
+          <div>
+            <div class="testi-name">Fernanda L.</div>
+            <div class="testi-role">Cabeleireira, Curitiba</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">O capítulo dos juros compostos me fez entender por que comecei errado tudo esses anos. Agora tenho um plano de 20 anos e durmo tranquilo sabendo que estou no caminho certo.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">R</div>
+          <div>
+            <div class="testi-name">Roberto N.</div>
+            <div class="testi-role">Eletricista autônomo, Porto Alegre</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY -->
+<section class="urgency">
+  <div class="container">
+    <div class="urgency-inner">
+      <div class="reveal-left">
+        <h2>Cada dia que passa, suas dívidas ficam <em>mais caras.</em></h2>
+        <p>O cheque especial cobra até 15% ao mês. O rotativo do cartão pode chegar a 20%. Isso significa que a cada 30 dias que você espera, você perde dinheiro real — dinheiro que poderia estar no seu bolso.</p>
+        <p>O melhor momento para agir foi ontem. O segundo melhor momento é <strong style="color:#AADDCC">agora.</strong></p>
+        <a href="#comprar" class="btn-primary">💡 Quero agir agora</a>
+      </div>
+      <div class="reveal-right">
+        <div class="debt-calc">
+          <h3>⚡ Calculadora do Custo da Espera</h3>
+          <div class="calc-row">
+            <span class="calc-label">Dívida de R$ 3.000 no cartão</span>
+            <span class="calc-val red">R$ 3.000</span>
+          </div>
+          <div class="calc-row">
+            <span class="calc-label">Juros rotativos (14% ao mês)</span>
+            <span class="calc-val red">R$ 420/mês</span>
+          </div>
+          <div class="calc-row">
+            <span class="calc-label">Em 12 meses sem pagar</span>
+            <span class="calc-val red">≈ R$ 11.700</span>
+          </div>
+          <div class="calc-row">
+            <span class="calc-label">Custo deste ebook</span>
+            <span class="calc-val green">R$ 27,90</span>
+          </div>
+          <div class="calc-total">
+            <span>Você pode economizar</span>
+            <span style="color:#AADDCC">+ R$ 8.000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTERS OVERVIEW -->
+<section class="chapters" id="capitulos">
+  <div class="container">
+    <div class="reveal text-center">
+      <div class="section-label">Conteúdo completo</div>
+      <h2 class="section-title">10 capítulos que vão<br><span class="green">transformar sua relação com o dinheiro</span></h2>
+    </div>
+    <div class="chapters-grid">
+      <div class="chapter-item reveal">
+        <div class="ch-num">01</div>
+        <div><div class="ch-title">A Mentalidade do Dinheiro</div><div class="ch-sub">Por que você ainda não enriqueceu</div></div>
+      </div>
+      <div class="chapter-item reveal">
+        <div class="ch-num">02</div>
+        <div><div class="ch-title">Entendendo suas Finanças</div><div class="ch-sub">O diagnóstico que vai mudar tudo</div></div>
+      </div>
+      <div class="chapter-item reveal">
+        <div class="ch-num">03</div>
+        <div><div class="ch-title">Liquidando as Dívidas</div><div class="ch-sub">Do caos para a liberdade financeira</div></div>
+      </div>
+      <div class="chapter-item reveal">
+        <div class="ch-num">04</div>
+        <div><div class="ch-title">A Arte de Poupar</div><div class="ch-sub">Como guardar dinheiro com salário baixo</div></div>
+      </div>
+      <div class="chapter-item reveal">
+        <div class="ch-num">05</div>
+        <div><div class="ch-title">Reserva de Emergência</div><div class="ch-sub">Seu escudo contra imprevistos</div></div>
+      </div>
+      <div class="chapter-item reveal">
+        <div class="ch-num">06</div>
+        <div><div class="ch-title">Primeiros Passos para Investir</div><div class="ch-sub">Onde colocar seu dinheiro</div></div>
+      </div>
+      <div class="chapter-item reveal">
+        <div class="ch-num">07</div>
+        <div><div class="ch-title">Investimentos para Iniciantes</div><div class="ch-sub">Tesouro Direto, CDB, FIIs e Ações</div></div>
+      </div>
+      <div class="chapter-item reveal">
+        <div class="ch-num">08</div>
+        <div><div class="ch-title">Construindo Renda Extra</div><div class="ch-sub">Multiplique suas fontes de renda</div></div>
+      </div>
+      <div class="chapter-item reveal">
+        <div class="ch-num">09</div>
+        <div><div class="ch-title">O Poder dos Juros Compostos</div><div class="ch-sub">O segredo dos ricos revelado</div></div>
+      </div>
+      <div class="chapter-item reveal">
+        <div class="ch-num">10</div>
+        <div><div class="ch-title">Seu Plano de 12 Meses</div><div class="ch-sub">Do zero à transformação financeira</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="comprar">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Investimento</div>
+      <h2 class="section-title">Um valor que cabe no seu bolso.<br><span class="green">Uma mudança que transforma sua vida.</span></h2>
+      <p style="color:var(--mdgray);max-width:500px;margin:10px auto 0;">Você gasta mais do que isso num café da manhã. Mas esse investimento pode te render muito mais do que isso.</p>
+    </div>
+    <div class="price-box reveal">
+      <div class="price-badge">OFERTA</div>
+      <div class="price-header">
+        <h3>Do Vermelho ao Verde</h3>
+        <p>Ebook Digital completo · Acesso imediato</p>
+      </div>
+      <div class="price-body">
+        <div class="price-old">De R$ 79,90</div>
+        <div class="price-current"><sup>R$</sup> 27<small>,90</small></div>
+        <div class="price-installment">ou 3x de R$ 9,96 no cartão</div>
+
+        <div class="price-features">
+          <div class="price-feature"><span class="feat-check">✅</span><span>10 capítulos de conteúdo prático e direto ao ponto</span></div>
+          <div class="price-feature"><span class="feat-check">✅</span><span>Planilha de diagnóstico financeiro preenchível</span></div>
+          <div class="price-feature"><span class="feat-check">✅</span><span>Plano completo de 12 meses para sair das dívidas</span></div>
+          <div class="price-feature"><span class="feat-check">✅</span><span>Guia de investimentos para iniciantes (Tesouro, CDB, FIIs)</span></div>
+          <div class="price-feature"><span class="feat-check">✅</span><span>30+ ideias de renda extra validadas</span></div>
+          <div class="price-feature"><span class="feat-check">✅</span><span>Formato PDF + DOCX — leia em qualquer dispositivo</span></div>
+          <div class="price-feature"><span class="feat-check">✅</span><span>Acesso vitalício e download imediato</span></div>
+        </div>
+
+        <a href="#" class="btn-buy">🚀 Quero minha cópia agora — R$ 27,90</a>
+
+        <div class="price-guarantee">
+          <div class="guarantee-icon">🛡️</div>
+          <p><strong>Garantia incondicional de 7 dias.</strong> Se por qualquer motivo você não ficar satisfeito, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="reveal text-center">
+      <div class="section-label">Dúvidas frequentes</div>
+      <h2 class="section-title">Perguntas que você<br>pode estar se fazendo</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q">
+          Este ebook funciona para quem ganha salário mínimo?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Sim. O ebook foi especialmente desenvolvido para pessoas com renda limitada. Todos os exemplos, estratégias e valores usados são pensados para a realidade de quem ganha entre 1 e 5 salários mínimos. Você pode começar a investir com apenas R$ 30.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">
+          Preciso entender de economia ou matemática?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Não. Esse foi um dos princípios fundamentais na escrita deste ebook: zero economês. Toda explicação usa linguagem simples, exemplos do dia a dia e comparações fáceis de entender. Se você sabe fazer as quatro operações básicas, você entende tudo.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">
+          E se eu já tiver muitas dívidas? Ainda funciona?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Especialmente para você! O capítulo 3 é inteiramente dedicado a sair das dívidas, com duas estratégias comprovadas (Bola de Neve e Avalanche) e um guia completo de como negociar descontos de até 90% com credores usando plataformas como Serasa Limpa Nome.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">
+          Como vou receber o ebook após o pagamento?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Imediatamente após a confirmação do pagamento, você receberá um e-mail com o link de download. O acesso é vitalício — você pode baixar quantas vezes quiser, em qualquer dispositivo. Funciona em celular, tablet e computador.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">
+          Quais investimentos são ensinados no ebook?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Tesouro Direto (Selic, IPCA+, Prefixado), CDB com liquidez diária, LCI e LCA, Fundos Imobiliários (FIIs) e introdução a ações via ETFs. Todos com explicação clara de quanto rende, onde comprar e qual é o valor mínimo.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">
+          E se eu não gostar? Tenho garantia?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Sim. Você tem 7 dias de garantia incondicional. Se por qualquer motivo — ou nenhum — você quiser o dinheiro de volta, basta enviar um e-mail e estornaremos 100% do valor. Sem perguntas, sem burocracia, sem enrolação.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="reveal">
+      O melhor dia para começar era ontem.<br>
+      O segundo melhor dia é <em>hoje.</em>
+    </h2>
+    <p class="reveal">Cada dia que passa com o dinheiro parado ou endividado é um dia a menos de liberdade. Por R$ 27,90 — o preço de uma pizza — você pode mudar o rumo de toda a sua vida financeira.</p>
+    <a href="#comprar" class="btn-primary-lg reveal">
+      🚀 Quero começar agora por R$ 27,90
+    </a>
+    <div class="final-meta reveal">
+      <div class="meta-item">🔒 Pagamento seguro</div>
+      <div class="meta-item">⚡ Acesso imediato</div>
+      <div class="meta-item">🛡️ 7 dias de garantia</div>
+      <div class="meta-item">📱 Leia em qualquer dispositivo</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>© 2024 Do Vermelho ao Verde — Todos os direitos reservados.<br>Este ebook tem caráter educativo. Não constitui assessoria de investimentos.</p>
+  </div>
+</footer>
+
+<!-- FLOATING CTA -->
+<a href="#comprar" class="float-cta" id="floatCta">
+  🚀 Comprar por R$ 27,90
+</a>
+
+<script>
+// ── Scroll reveal ──────────────────────────────────────────────
+const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), (i % 4) * 80);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// ── Counter animation ──────────────────────────────────────────
+const counters = document.querySelectorAll('[data-target]');
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const target = +e.target.dataset.target;
+      const suffix = target >= 100 ? '' : target < 20 ? '' : '+';
+      let current = 0;
+      const step = target / 60;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        e.target.textContent = Math.floor(current).toLocaleString('pt-BR') + (current >= target ? suffix : '');
+        if (current >= target) clearInterval(timer);
+      }, 25);
+      counterObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(el => counterObs.observe(el));
+
+// ── FAQ accordion ──────────────────────────────────────────────
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// ── Floating CTA ───────────────────────────────────────────────
+const floatCta = document.getElementById('floatCta');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 600) floatCta.classList.add('visible');
+  else floatCta.classList.remove('visible');
+});
+
+// ── Smooth nav shadow ──────────────────────────────────────────
+const nav = document.querySelector('.nav');
+window.addEventListener('scroll', () => {
+  nav.style.padding = window.scrollY > 40 ? '8px 24px' : '12px 24px';
+});
+</script>
+</body>
+</html>
