@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Do Vermelho ao Verde – E‑book</title>
+    <style>
+      /* Color palette */
+      :root {
+        --primary: #00c853; /* vibrante verde */
+        --secondary: #1b1b1b; /* preto suave */
+        --accent-red: #c0392b; /* vermelho usado apenas para chamar atenção */
+        --light-text: #f4f4f4;
+        --muted-text: #b0b0b0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        color: var(--light-text);
+        background-color: var(--secondary);
+        line-height: 1.6;
+      }
+
+      /* Utility classes */
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 0;
+      }
+
+      h1, h2, h3 {
+        line-height: 1.2;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      h3 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        margin-bottom: 15px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 28px;
+        border-radius: 30px;
+        background-color: var(--primary);
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #009e3b;
+      }
+
+      /* Hero Section */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 80vh;
+        background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('ebook_cover.png') center/cover no-repeat;
+        text-align: center;
+        padding: 60px 20px;
+        position: relative;
+      }
+
+      .hero-overlay {
+        background: rgba(0, 0, 0, 0.65);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .hero-content {
+        position: relative;
+        max-width: 700px;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        margin-bottom: 10px;
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .hero span.red {
+        color: var(--accent-red);
+      }
+
+      .hero p {
+        margin-bottom: 30px;
+        font-size: 1.2rem;
+        color: var(--muted-text);
+      }
+
+      .hero .price {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      /* Features Section */
+      .features {
+        background-color: #111;
+        padding: 60px 0;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-top: 40px;
+      }
+
+      .feature-item {
+        background-color: #1a1a1a;
+        border-radius: 8px;
+        padding: 30px;
+        transition: transform 0.3s ease;
+        cursor: default;
+      }
+
+      .feature-item:hover {
+        transform: translateY(-6px);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        color: var(--primary);
+      }
+
+      .feature-title {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        color: var(--light-text);
+      }
+
+      .feature-desc {
+        font-size: 0.95rem;
+        color: var(--muted-text);
+      }
+
+      /* Testimonial / Guarantee Section */
+      .testimonial {
+        background-color: #171717;
+        padding: 60px 0;
+        text-align: center;
+      }
+
+      .testimonial blockquote {
+        font-style: italic;
+        font-size: 1.2rem;
+        color: var(--muted-text);
+        margin: 0 auto 20px;
+        max-width: 800px;
+      }
+
+      .testimonial cite {
+        display: block;
+        font-size: 0.95rem;
+        color: var(--primary);
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #0d0d0d;
+        font-size: 0.85rem;
+        color: var(--muted-text);
+      }
+
+      @media (min-width: 768px) {
+        .hero {
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 80px 60px;
+        }
+        .hero-content {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Do <span class="red">Vermelho</span> ao Verde</h1>
+        <p>O guia definitivo para sair das dívidas, formar reserva e investir com confiança. Descubra que liberdade financeira é possível para qualquer pessoa.</p>
+        <p class="price">R$ 27,90</p>
+        <a class="btn" href="#comprar">Comprar agora</a>
+      </div>
+    </section>
+
+    <!-- Features section -->
+    <section class="features" id="features">
+      <div class="container">
+        <h2>O que você vai conquistar</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">💡</div>
+            <h3 class="feature-title">Mentalidade Financeira</h3>
+            <p class="feature-desc">Aprenda a mudar seus pensamentos sobre dinheiro e a quebrar mitos que te mantêm no vermelho.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📉</div>
+            <h3 class="feature-title">Quitação de Dívidas</h3>
+            <p class="feature-desc">Descubra métodos práticos para eliminar dívidas e retomar o controle da sua vida financeira.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">💰</div>
+            <h3 class="feature-title">Reserva & Investimentos</h3>
+            <p class="feature-desc">Monte sua reserva de emergência e dê os primeiros passos em investimentos seguros e rentáveis.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📈</div>
+            <h3 class="feature-title">Renda Extra</h3>
+            <p class="feature-desc">Estratégias para multiplicar suas fontes de renda e fazer o dinheiro trabalhar por você.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial / Guarantee -->
+    <section class="testimonial">
+      <div class="container">
+        <blockquote>“Segui as estratégias do e‑book e em poucos meses saí do cheque especial. Hoje tenho uma reserva de emergência e comecei a investir. É libertador!”</blockquote>
+        <cite>— Maria S., leitora satisfeita</cite>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2026 Johny – Todos os direitos reservados.
+    </footer>
+  </body>
+</html>
